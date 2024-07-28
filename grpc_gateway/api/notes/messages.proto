@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package github.com.moguchev.microservices.grpc_openapi;
+
+import "buf/validate/validate.proto";
+
+option go_package = "github.com/moguchev/microservices_courcse/grpc_openapi/pkg/api/notes;notes";
+
+
+// NoteInfo - информация записи
+message NoteInfo {
+  // title - название записи
+  string title = 1 [json_name = "title", (buf.validate.field).string.min_len = 1];
+  // content - содержимое записи
+  string content = 2 [json_name = "content", (buf.validate.field).string.min_len = 1];
+}
+
+// Note - full note model
+message Note {
+  // id - уникальный идентификатор записи
+  uint64 id = 1 [json_name = "id"];
+  // info - 
+  NoteInfo info = 2 [json_name = "info"];
+}
+
+// SaveNoteRequest - запрос SaveNote
+message SaveNoteRequest {
+  // info - информация записи (контент)
+  NoteInfo info = 1 [json_name = "info", (buf.validate.field).required = true];
+}
+
+// SaveNoteResponse - ответ SaveNote
+message SaveNoteResponse {
+  // id - уникальный идентификатор записи
+  uint64 id = 1 [json_name = "id"];
+}
+
+// ListNotesRequest - запрос ListNotes
+message ListNotesRequest {
+  // ids - массив идентификатор записи
+  repeated uint64 ids = 1 [json_name = "id"];
+  // limit - 
+  uint64 limit = 2 [json_name = "limit"];
+  // offset -
+  uint64 offset = 3 [json_name = "offset"];
+}
+
+// ListNotesResponse - ответ ListNotes
+message ListNotesResponse {
+  // notes - все записи
+  repeated Note notes = 1 [json_name = "notes"];
+}
