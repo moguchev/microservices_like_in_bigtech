@@ -1,0 +1,75 @@
+lint:
+  rules:
+    no_default: true
+    add:
+      - ENUM_FIELD_NAMES_PREFIX
+      - ENUM_FIELD_NAMES_UPPER_SNAKE_CASE
+      - ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH
+      - ENUM_NAMES_UPPER_CAMEL_CASE
+      - FILE_NAMES_LOWER_SNAKE_CASE
+      - FIELD_NAMES_LOWER_SNAKE_CASE
+      - IMPORTS_SORTED
+      - MESSAGE_NAMES_UPPER_CAMEL_CASE
+      - ORDER
+      - PACKAGE_NAME_LOWER_CASE
+      - RPC_NAMES_UPPER_CAMEL_CASE
+      - SERVICE_NAMES_UPPER_CAMEL_CASE
+      - INDENT
+      - PROTO3_FIELDS_AVOID_REQUIRED
+      - PROTO3_GROUPS_AVOID
+      - REPEATED_FIELD_NAMES_PLURALIZED
+      - QUOTE_CONSISTENT
+      - SERVICE_NAMES_END_WITH
+      - MESSAGE_NAMES_EXCLUDE_PREPOSITIONS
+      - MESSAGES_HAVE_COMMENT
+      - SERVICES_HAVE_COMMENT
+      - RPCS_HAVE_COMMENT
+      - FIELDS_HAVE_COMMENT
+      - ENUMS_HAVE_COMMENT
+      - ENUM_FIELDS_HAVE_COMMENT
+      # - FILE_HAS_COMMENT
+      - SYNTAX_CONSISTENT
+
+  rules_option:
+    indent:
+      # Available styles are 4(4-spaces), 2(2-spaces) or tab.
+      style: 2
+      not_insert_newline: true
+      
+    quote_consistent:
+      # Available quote are "double" or "single".
+      quote: double
+
+    enum_field_names_zero_value_end_with:
+      suffix: UNKNOWN
+
+    service_names_end_with:
+      text: Service
+
+    messages_have_comment:
+      should_follow_golang_style: true
+
+    services_have_comment:
+      should_follow_golang_style: true
+
+    rpcs_have_comment:
+      should_follow_golang_style: true
+
+    fields_have_comment:
+      should_follow_golang_style: true
+
+    enums_have_comment:
+      should_follow_golang_style: true
+
+    enum_fields_have_comment:
+      should_follow_golang_style: true
+
+    syntax_consistent:
+      version: proto3
+
+    message_names_exclude_prepositions:
+      excludes:
+        - By
+
+    repeated_field_names_pluralized:
+      uncountable_rules: []
